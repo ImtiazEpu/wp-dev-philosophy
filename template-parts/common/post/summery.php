@@ -14,7 +14,7 @@
 	</div>
 	<div class="entry__meta">
                             <span class="entry__meta-links">
-                                <?php the_category( ' ' ); ?>
+                                <?php echo get_the_category_list( ' ' ); ?>
                             </span>
 	</div>
 </div>
