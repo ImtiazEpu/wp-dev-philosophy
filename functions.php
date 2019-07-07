@@ -1,5 +1,8 @@
 <?php
 require_once( get_theme_file_path( "/inc/tgm.php" ) );
+if ( class_exists( 'Attachments' ) ) {
+	require_once get_theme_file_path( "/inc/attachments.php" );
+}
 if ( site_url() == "http://phil.devops/" ) {
 	define( "VERSION", time() );
 } else {
@@ -52,3 +55,15 @@ function philosophy_pagination() {
 	$links = str_replace( "next pgn__num", "pgn__next", $links );
 	echo $links;
 }
+
+function philosophy_admin_asset( $hook ) {
+	if ( isset( $_REQUEST[ 'post' ] ) || isset( $_REQUEST[ 'post_ID' ] ) ) {
+		$post_id = empty( $_REQUEST[ 'post_ID' ] ) ? $_REQUEST[ 'post' ] : $_REQUEST[ 'post_ID' ];
+	}
+	if ( "post.php" == $hook ) {
+		$post_format= get_post_format($post_id);
+		wp_enqueue_script( "admin-js", get_theme_file_uri( "/assets/js/admin.js" ), array( "jquery" ), VERSION, true );
+		wp_localize_script("admin-js","philosophy_pf",array("format"=>$post_format));
+	}
+}
+add_action( "admin_enqueue_scripts", "philosophy_admin_asset" );
