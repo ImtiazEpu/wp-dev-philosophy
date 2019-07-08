@@ -57,13 +57,25 @@ function philosophy_pagination() {
 }
 
 function philosophy_admin_asset( $hook ) {
-	if ( isset( $_REQUEST[ 'post' ] ) || isset( $_REQUEST[ 'post_ID' ] ) ) {
-		$post_id = empty( $_REQUEST[ 'post_ID' ] ) ? $_REQUEST[ 'post' ] : $_REQUEST[ 'post_ID' ];
+	if ( isset( $_REQUEST['post'] ) || isset( $_REQUEST['post_ID'] ) ) {
+		$post_id = empty( $_REQUEST['post_ID'] ) ? $_REQUEST['post'] : $_REQUEST['post_ID'];
 	}
 	if ( "post.php" == $hook ) {
-		$post_format= get_post_format($post_id);
+		$post_format = get_post_format( $post_id );
 		wp_enqueue_script( "admin-js", get_theme_file_uri( "/assets/js/admin.js" ), array( "jquery" ), VERSION, true );
-		wp_localize_script("admin-js","philosophy_pf",array("format"=>$post_format));
+		wp_localize_script( "admin-js", "philosophy_pf", array( "format" => $post_format ) );
 	}
 }
 add_action( "admin_enqueue_scripts", "philosophy_admin_asset" );
+
+
+function philosophy_move_comment_field_to_bottom( $fields ) {
+	$comment_field = $fields['comment'];
+	unset( $fields['comment'] );
+	$fields['comment'] = $comment_field;
+	return $fields;
+}
+add_filter( 'comment_form_fields', 'philosophy_move_comment_field_to_bottom' );
+
+
+
