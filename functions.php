@@ -79,3 +79,16 @@ add_filter( 'comment_form_fields', 'philosophy_move_comment_field_to_bottom' );
 
 remove_action("term_description","wpautop");
 
+function philosophy_widgets(){
+	register_sidebar( array(
+		'name' => __( 'About Us Page', 'philosophy' ),
+		'id' => 'about-us',
+		'description' => __( 'Widgets in this area will be shown on about us page.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="col-block %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="quarter-top-margin">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action("widgets_init","philosophy_widgets");
+
