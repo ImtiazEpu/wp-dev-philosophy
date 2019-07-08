@@ -77,5 +77,5 @@ function philosophy_move_comment_field_to_bottom( $fields ) {
 }
 add_filter( 'comment_form_fields', 'philosophy_move_comment_field_to_bottom' );
 
-
+remove_action("term_description","wpautop");
 
