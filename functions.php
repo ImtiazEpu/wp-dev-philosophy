@@ -1,5 +1,6 @@
 <?php
 require_once( get_theme_file_path( "/inc/tgm.php" ) );
+require_once( get_theme_file_path( "/widgets/social-icons-widget.php" ) );
 if ( class_exists( 'Attachments' ) ) {
 	require_once get_theme_file_path( "/inc/attachments.php" );
 }
@@ -18,6 +19,11 @@ function philosophy_theme_setup() {
 	add_theme_support( "/assets/css/editor-style.css" );
 
 	register_nav_menu( "topmenu", __( "Top Menu", "philosophy" ) );
+	register_nav_menus( array(
+		"footer-left"   => __( "Footer Left Menu", "philosophy" ),
+		"footer-middle" => __( "Footer Middle Menu", "philosophy" ),
+		"footer-right"  => __( "Footer Right Menu", "philosophy" ),
+	) );
 
 	add_image_size( "philosophy-home-square", 400, 400, true );
 }
@@ -110,6 +116,33 @@ function philosophy_widgets() {
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="quarter-top-margin">',
 		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Before Footer Section', 'philosophy' ),
+		'id'            => 'before-footer-rightside',
+		'description'   => __( 'Before footer section right side.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Section', 'philosophy' ),
+		'id'            => 'footer-right',
+		'description'   => __( 'Right footer section.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Bottom Section', 'philosophy' ),
+		'id'            => 'footer-bottom',
+		'description'   => __( 'footer bottom section.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
 	) );
 }
 
