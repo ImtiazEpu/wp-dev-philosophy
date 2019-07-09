@@ -66,6 +66,7 @@ function philosophy_admin_asset( $hook ) {
 		wp_localize_script( "admin-js", "philosophy_pf", array( "format" => $post_format ) );
 	}
 }
+
 add_action( "admin_enqueue_scripts", "philosophy_admin_asset" );
 
 
@@ -73,22 +74,44 @@ function philosophy_move_comment_field_to_bottom( $fields ) {
 	$comment_field = $fields['comment'];
 	unset( $fields['comment'] );
 	$fields['comment'] = $comment_field;
+
 	return $fields;
 }
+
 add_filter( 'comment_form_fields', 'philosophy_move_comment_field_to_bottom' );
 
-remove_action("term_description","wpautop");
+remove_action( "term_description", "wpautop" );
 
-function philosophy_widgets(){
+function philosophy_widgets() {
 	register_sidebar( array(
-		'name' => __( 'About Us Page', 'philosophy' ),
-		'id' => 'about-us',
-		'description' => __( 'Widgets in this area will be shown on about us page.', 'philosophy' ),
+		'name'          => __( 'About Us Page', 'philosophy' ),
+		'id'            => 'about-us',
+		'description'   => __( 'Widgets in this area will be shown on about us page.', 'philosophy' ),
 		'before_widget' => '<div id="%1$s" class="col-block %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="quarter-top-margin">',
 		'after_title'   => '</h3>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Contact Page Map Section', 'philosophy' ),
+		'id'            => 'contact-map',
+		'description'   => __( 'Widgets in this area will be shown on contact page.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Contact Page Information Section', 'philosophy' ),
+		'id'            => 'contact-info',
+		'description'   => __( 'Widgets in this area will be shown on contact page.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="col-six tab-full %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="quarter-top-margin">',
+		'after_title'   => '</h3>',
+	) );
 }
-add_action("widgets_init","philosophy_widgets");
+
+add_action( "widgets_init", "philosophy_widgets" );
 
