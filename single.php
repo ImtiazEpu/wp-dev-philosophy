@@ -44,7 +44,7 @@ get_header();
 
                     <div class="s-content__author-about">
                         <h4 class="s-content__author-name">
-                            <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta("ID")));?>"><?php the_author(); ?></a>
+                            <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ); ?>"><?php the_author(); ?></a>
                         </h4>
 
                         <p>
@@ -52,18 +52,18 @@ get_header();
                         </p>
 
                         <ul class="s-content__author-social">
-							<?php $philosophy_author_facebook = get_field( "facebook", "user_".get_the_author_meta( "ID" ) ); ?>
-							<?php $philosophy_author_twitter = get_field( "twitter", "user_".get_the_author_meta( "ID" ) ); ?>
-							<?php $philosophy_author_instagram = get_field( "instagram", "user_".get_the_author_meta( "ID" ) ); ?>
-							<?php if ( $philosophy_author_facebook ):?>
-                                <li><a href="<?php echo esc_url($philosophy_author_facebook);?>">Facebook</a></li>
+							<?php $philosophy_author_facebook = get_field( "facebook", "user_" . get_the_author_meta( "ID" ) ); ?>
+							<?php $philosophy_author_twitter = get_field( "twitter", "user_" . get_the_author_meta( "ID" ) ); ?>
+							<?php $philosophy_author_instagram = get_field( "instagram", "user_" . get_the_author_meta( "ID" ) ); ?>
+							<?php if ( $philosophy_author_facebook ): ?>
+                                <li><a href="<?php echo esc_url( $philosophy_author_facebook ); ?>">Facebook</a></li>
 							<?php endif; ?>
-	                        <?php if ( $philosophy_author_twitter ):?>
-                                <li><a href="<?php echo esc_url($philosophy_author_twitter);?>">Twitter</a></li>
-	                        <?php endif; ?>
-	                        <?php if ( $philosophy_author_instagram ):?>
-                                <li><a href="<?php echo esc_url($philosophy_author_instagram);?>">Instagram</a></li>
-	                        <?php endif; ?>
+							<?php if ( $philosophy_author_twitter ): ?>
+                                <li><a href="<?php echo esc_url( $philosophy_author_twitter ); ?>">Twitter</a></li>
+							<?php endif; ?>
+							<?php if ( $philosophy_author_instagram ): ?>
+                                <li><a href="<?php echo esc_url( $philosophy_author_instagram ); ?>">Instagram</a></li>
+							<?php endif; ?>
                         </ul>
                     </div>
                 </div>
@@ -71,26 +71,26 @@ get_header();
                 <div class="s-content__pagenav">
                     <div class="s-content__nav">
                         <div class="s-content__prev">
-                            <?php
-                            $philosophy_prev_post = get_previous_post();
-                            if ($philosophy_prev_post):
-                            ?>
-                            <a href="<?php echo get_the_permalink($philosophy_prev_post)?>" rel="prev">
-                                <span><?php _e("Previous Post", "philosophy")?></span>
-                                <?php echo get_the_title($philosophy_prev_post);?>
-                            </a>
-                            <?php endif;?>
+							<?php
+							$philosophy_prev_post = get_previous_post();
+							if ( $philosophy_prev_post ):
+								?>
+                                <a href="<?php echo get_the_permalink( $philosophy_prev_post ) ?>" rel="prev">
+                                    <span><?php _e( "Previous Post", "philosophy" ) ?></span>
+									<?php echo get_the_title( $philosophy_prev_post ); ?>
+                                </a>
+							<?php endif; ?>
                         </div>
                         <div class="s-content__next">
-	                        <?php
-	                        $philosophy_next_post = get_next_post();
-	                        if ($philosophy_next_post):
-		                        ?>
-                                <a href="<?php echo get_the_permalink($philosophy_next_post)?>" rel="next">
-                                    <span><?php _e("Next Post","philosophy")?></span>
-			                        <?php echo get_the_title($philosophy_next_post);?>
+							<?php
+							$philosophy_next_post = get_next_post();
+							if ( $philosophy_next_post ):
+								?>
+                                <a href="<?php echo get_the_permalink( $philosophy_next_post ) ?>" rel="next">
+                                    <span><?php _e( "Next Post", "philosophy" ) ?></span>
+									<?php echo get_the_title( $philosophy_next_post ); ?>
                                 </a>
-	                        <?php endif;?>
+							<?php endif; ?>
                         </div>
                     </div>
                 </div> <!-- end s-content__pagenav -->
@@ -100,10 +100,10 @@ get_header();
         </article>
 
 
-        <?php
-        if (!post_password_required() && comments_open()){
-            comments_template();
-        }?>
+		<?php
+		if ( ! post_password_required() && comments_open() ) {
+			comments_template();
+		} ?>
 
     </section> <!-- s-content -->
 

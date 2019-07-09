@@ -41,14 +41,17 @@ if ( $philosophy_fp->post_count > 1 ):
                             </h1>
 
                             <div class="entry__info">
-                                <a href="<?php echo esc_url( $post_data[0]['author_link'] ); ?>" class="entry__profile-pic">
+                                <a href="<?php echo esc_url( $post_data[0]['author_link'] ); ?>"
+                                   class="entry__profile-pic">
                                     <img class="avatar"
                                          src="<?php echo esc_html( $post_data[0]['author_avatar'] ); ?>"
                                          alt="">
                                 </a>
 
                                 <ul class="entry__meta">
-                                    <li><a href="<?php echo esc_url( $post_data[0]['author_link'] ); ?>"><?php echo esc_html( $post_data[0]['author'] ); ?></a></li>
+                                    <li>
+                                        <a href="<?php echo esc_url( $post_data[0]['author_link'] ); ?>"><?php echo esc_html( $post_data[0]['author'] ); ?></a>
+                                    </li>
                                     <li><?php echo esc_html( $post_data[0]['date'] ); ?></li>
                                 </ul>
                             </div>
@@ -73,14 +76,17 @@ if ( $philosophy_fp->post_count > 1 ):
                                 </h1>
 
                                 <div class="entry__info">
-                                    <a href="<?php echo esc_url( $post_data[$i]['author_link'] ); ?>" class="entry__profile-pic">
+                                    <a href="<?php echo esc_url( $post_data[ $i ]['author_link'] ); ?>"
+                                       class="entry__profile-pic">
                                         <img class="avatar"
                                              src="<?php echo esc_html( $post_data[ $i ]['author_avatar'] ); ?>"
                                              alt="">
                                     </a>
 
                                     <ul class="entry__meta">
-                                        <li><a href="<?php echo esc_url( $post_data[$i]['author_link'] ); ?>"><?php echo esc_html( $post_data[ $i ]['author'] ); ?></a></li>
+                                        <li>
+                                            <a href="<?php echo esc_url( $post_data[ $i ]['author_link'] ); ?>"><?php echo esc_html( $post_data[ $i ]['author'] ); ?></a>
+                                        </li>
                                         <li><?php echo esc_html( $post_data[ $i ]['date'] ); ?></li>
                                     </ul>
                                 </div>

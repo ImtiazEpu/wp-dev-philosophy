@@ -53,8 +53,8 @@
             <h3>Tags</h3>
             <div class="tagcloud">
 				<?php
-                   the_tags('','','');
-                ?>
+				the_tags( '', '', '' );
+				?>
             </div>
         </div> <!-- end tags -->
     </div> <!-- end tags-wrap -->
@@ -71,52 +71,52 @@
 
             <div class="col-two md-four mob-full s-footer__sitelinks">
 
-                <h4><?php _e("Quick Links", "philosophy")?></h4>
-                <?php
-                wp_nav_menu( array(
-	                'theme_location' => 'footer-left',
-	                'menu_id'        => 'footer_left',
-	                'menu_class'     => 's-footer__linklist'
-                ) );
-                ?>
+                <h4><?php _e( "Quick Links", "philosophy" ) ?></h4>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'footer-left',
+					'menu_id'        => 'footer_left',
+					'menu_class'     => 's-footer__linklist'
+				) );
+				?>
 
             </div> <!-- end s-footer__sitelinks -->
 
             <div class="col-two md-four mob-full s-footer__archives">
 
-                <h4><?php _e("Archives", "philosophy")?></h4>
+                <h4><?php _e( "Archives", "philosophy" ) ?></h4>
 
-	            <?php
-	            wp_nav_menu( array(
-		            'theme_location' => 'footer-middle',
-		            'menu_id'        => 'footer_middle',
-		            'menu_class'     => 's-footer__linklist'
-	            ) );
-	            ?>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'footer-middle',
+					'menu_id'        => 'footer_middle',
+					'menu_class'     => 's-footer__linklist'
+				) );
+				?>
 
             </div> <!-- end s-footer__archives -->
 
             <div class="col-two md-four mob-full s-footer__social">
 
-                <h4><?php _e("Social", "philosophy")?></h4>
+                <h4><?php _e( "Social", "philosophy" ) ?></h4>
 
-	            <?php
-	            wp_nav_menu( array(
-		            'theme_location' => 'footer-right',
-		            'menu_id'        => 'footer_right',
-		            'menu_class'     => 's-footer__linklist'
-	            ) );
-	            ?>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'footer-right',
+					'menu_id'        => 'footer_right',
+					'menu_class'     => 's-footer__linklist'
+				) );
+				?>
 
             </div> <!-- end s-footer__social -->
 
             <div class="col-five md-full end s-footer__subscribe">
 
-                <?php
-                    if (is_active_sidebar("footer-right")){
-                        dynamic_sidebar("footer-right");
-                    }
-                ?>
+				<?php
+				if ( is_active_sidebar( "footer-right" ) ) {
+					dynamic_sidebar( "footer-right" );
+				}
+				?>
 
                 <div class="subscribe-form">
                     <form id="mc-form" class="group" novalidate="true">
@@ -140,11 +140,11 @@
         <div class="row">
             <div class="col-full">
                 <div class="s-footer__copyright">
-	                <?php
-	                if (is_active_sidebar("footer-bottom")){
-		                dynamic_sidebar("footer-bottom");
-	                }
-	                ?>
+					<?php
+					if ( is_active_sidebar( "footer-bottom" ) ) {
+						dynamic_sidebar( "footer-bottom" );
+					}
+					?>
                 </div>
 
                 <div class="go-top">

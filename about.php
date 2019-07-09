@@ -29,11 +29,11 @@ get_header();
             <div class="col-full s-content__main">
 				<?php the_content(); ?>
                 <div class="row block-1-2 block-tab-full">
-                    <?php
-                        if (is_active_sidebar("about-us")){
-                            dynamic_sidebar("about-us");
-                        }
-                    ?>
+					<?php
+					if ( is_active_sidebar( "about-us" ) ) {
+						dynamic_sidebar( "about-us" );
+					}
+					?>
                 </div>
             </div> <!-- end s-content__main -->
 

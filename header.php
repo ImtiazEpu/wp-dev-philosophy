@@ -30,28 +30,28 @@ if ( is_home() ) {
         <div class="header__content row">
 
             <div class="header__logo">
-                <?php
-                    if (has_custom_logo()){
-                        the_custom_logo();
-                    }else{
-                        echo "<h1><a href='".home_url("/")."'>".get_bloginfo('name')."</a></h1>";
-                    }
-                ?>
+				<?php
+				if ( has_custom_logo() ) {
+					the_custom_logo();
+				} else {
+					echo "<h1><a href='" . home_url( "/" ) . "'>" . get_bloginfo( 'name' ) . "</a></h1>";
+				}
+				?>
             </div> <!-- end header__logo -->
 
-            <?php
-                if (is_active_sidebar("header-section")){
-                    dynamic_sidebar("header-section");
-                }
-            ?>
+			<?php
+			if ( is_active_sidebar( "header-section" ) ) {
+				dynamic_sidebar( "header-section" );
+			}
+			?>
 
             <a class="header__search-trigger" href="#0"></a>
 
             <div class="header__search">
 
-                    <?php get_search_form();?>
+				<?php get_search_form(); ?>
 
-                <a href="#0" title="Close Search" class="header__overlay-close"><?php _e("Close", "philosophy") ?></a>
+                <a href="#0" title="Close Search" class="header__overlay-close"><?php _e( "Close", "philosophy" ) ?></a>
 
             </div>  <!-- end header__search -->
 

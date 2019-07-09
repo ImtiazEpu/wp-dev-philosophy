@@ -159,12 +159,12 @@ function philosophy_widgets() {
 add_action( "widgets_init", "philosophy_widgets" );
 
 add_action( "widgets_init", "philosophy_widgets" );
-function philosophy_search_form(){
-	$homedir = home_url("/");
-	$label = __("Search for", "philosophy");
-	$placeholder = __("Type Keyword", "philosophy");
-	$search_button = __("Search", "philosophy");
-	$newform = <<<FORM
+function philosophy_search_form() {
+	$homedir       = home_url( "/" );
+	$label         = __( "Search for", "philosophy" );
+	$placeholder   = __( "Type Keyword", "philosophy" );
+	$search_button = __( "Search", "philosophy" );
+	$newform       = <<<FORM
 <form role="search" method="get" class="header__search-form" action="{$homedir}">
     <label>
         <span class="hide-content">{$label}:</span>
@@ -174,7 +174,9 @@ function philosophy_search_form(){
     <input type="submit" class="search-submit" value="{$search_button}">
 </form>
 FORM;
+
 	return $newform;
 
 }
-add_filter("get_search_form", "philosophy_search_form");
+
+add_filter( "get_search_form", "philosophy_search_form" );

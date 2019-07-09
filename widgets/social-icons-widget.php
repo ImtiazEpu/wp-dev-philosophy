@@ -1,4 +1,5 @@
 <?php
+
 class LwhhSocialIcons_Widget extends WP_Widget {
 	/**
 	 * Register widget with WordPress.
@@ -10,13 +11,15 @@ class LwhhSocialIcons_Widget extends WP_Widget {
 			array( 'description' => __( 'Social Icons', 'philosophy' ), ) // Args
 		);
 	}
+
 	/**
 	 * Front-end display of widget.
 	 *
-	 * @see WP_Widget::widget()
-	 *
 	 * @param array $args Widget arguments.
 	 * @param array $instance Saved values from database.
+	 *
+	 * @see WP_Widget::widget()
+	 *
 	 */
 	public function widget( $args, $instance ) {
 		extract( $args );
@@ -35,13 +38,13 @@ class LwhhSocialIcons_Widget extends WP_Widget {
 			"behance"
 		);
 		$title        = apply_filters( 'widget_title', $instance['title'] );
-		echo wp_kses_post($before_widget);
+		echo wp_kses_post( $before_widget );
 		?>
-        <ul class="<?php echo esc_attr($instance['classname']); ?>">
+        <ul class="<?php echo esc_attr( $instance['classname'] ); ?>">
 			<?php
 			if ( $title ) {
 				echo "<div class=\"widget-title\">";
-				echo wp_kses_post($before_title) . esc_html( $title ) . wp_kses_post($after_title);
+				echo wp_kses_post( $before_title ) . esc_html( $title ) . wp_kses_post( $after_title );
 				echo "</div>";
 			}
 			?>
@@ -60,22 +63,23 @@ class LwhhSocialIcons_Widget extends WP_Widget {
 
         </ul>
 		<?php
-		echo wp_kses_post($after_widget);
+		echo wp_kses_post( $after_widget );
 	}
+
 	/**
 	 * Sanitize widget form values as they are saved.
-	 *
-	 * @see WP_Widget::update()
 	 *
 	 * @param array $new_instance Values just sent to be saved.
 	 * @param array $old_instance Previously saved values from database.
 	 *
 	 * @return array Updated safe values to be saved.
+	 * @see WP_Widget::update()
+	 *
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance                = array();
 		$instance['title']       = strip_tags( $new_instance['title'] );
-		$instance['classname']       = strip_tags( $new_instance['classname'] );
+		$instance['classname']   = strip_tags( $new_instance['classname'] );
 		$instance['facebook']    = strip_tags( $new_instance['facebook'] );
 		$instance['twitter']     = strip_tags( $new_instance['twitter'] );
 		$instance['github']      = strip_tags( $new_instance['github'] );
@@ -88,14 +92,17 @@ class LwhhSocialIcons_Widget extends WP_Widget {
 		$instance['dribbble']    = strip_tags( $new_instance['dribbble'] );
 		$instance['flickr']      = strip_tags( $new_instance['flickr'] );
 		$instance['behance']     = strip_tags( $new_instance['behance'] );
+
 		return $instance;
 	}
+
 	/**
 	 * Back-end widget form.
 	 *
+	 * @param array $instance Previously saved values from database.
+	 *
 	 * @see WP_Widget::form()
 	 *
-	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
 		if ( isset( $instance['title'] ) ) {
@@ -142,7 +149,7 @@ class LwhhSocialIcons_Widget extends WP_Widget {
 		<?php foreach ( $social_icons as $sci ) {
 			?>
             <p>
-                <label for="<?php echo esc_attr($this->get_field_id( $sci )) ; ?>"><?php echo esc_html( ucfirst( $sci ) . " " . __( 'URL', 'philosophy' ) ); ?>
+                <label for="<?php echo esc_attr( $this->get_field_id( $sci ) ); ?>"><?php echo esc_html( ucfirst( $sci ) . " " . __( 'URL', 'philosophy' ) ); ?>
                     : </label>
                 <br/>
 
@@ -162,4 +169,5 @@ class LwhhSocialIcons_Widget extends WP_Widget {
 function lwhh_social_icons_widget() {
 	register_widget( 'LwhhSocialIcons_Widget' );
 }
+
 add_action( 'widgets_init', 'lwhh_social_icons_widget' );
