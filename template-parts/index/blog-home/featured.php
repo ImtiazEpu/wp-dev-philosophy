@@ -45,7 +45,7 @@ if ( $philosophy_fp->post_count > 1 ):
                                    class="entry__profile-pic">
                                     <img class="avatar"
                                          src="<?php echo esc_html( $post_data[0]['author_avatar'] ); ?>"
-                                         alt="">
+                                         alt="<?php echo esc_attr( $post_data[0]['author'] ); ?>">
                                 </a>
 
                                 <ul class="entry__meta">
@@ -80,7 +80,7 @@ if ( $philosophy_fp->post_count > 1 ):
                                        class="entry__profile-pic">
                                         <img class="avatar"
                                              src="<?php echo esc_html( $post_data[ $i ]['author_avatar'] ); ?>"
-                                             alt="">
+                                             alt="<?php echo esc_attr( $post_data[ $i ]['author'] ); ?>">
                                     </a>
 
                                     <ul class="entry__meta">

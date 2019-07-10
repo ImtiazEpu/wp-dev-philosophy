@@ -4,6 +4,7 @@ require_once( get_theme_file_path( "/widgets/social-icons-widget.php" ) );
 if ( class_exists( 'Attachments' ) ) {
 	require_once get_theme_file_path( "/inc/attachments.php" );
 }
+if ( ! isset( $content_width ) ) $content_width = 960;
 if ( site_url() == "http://phil.devops/" ) {
 	define( "VERSION", time() );
 } else {
@@ -18,6 +19,7 @@ function philosophy_theme_setup() {
 	add_theme_support( "html5", array( 'search-form', 'comment-list' ) );
 	add_theme_support( 'post-formats', array( "image", "gallery", "quote", "audio", "video", "link" ) );
 	add_theme_support( "/assets/css/editor-style.css" );
+	add_theme_support( 'automatic-feed-links' );
 
 	register_nav_menu( "topmenu", __( "Top Menu", "philosophy" ) );
 	register_nav_menus( array(
@@ -43,6 +45,9 @@ function philosophy_assets() {
 	wp_enqueue_script( "modernizr-js", get_theme_file_uri( "/assets/js/modernizr.js" ), null, 1.0 );
 	wp_enqueue_script( "pace-js", get_theme_file_uri( "/assets/js/pace.min.js" ), null, 1.0 );
 	wp_enqueue_script( "plugins-js", get_theme_file_uri( "/assets/js/plugins.js" ), array( "jquery" ), 1.0, true );
+	if ( is_singular() ) {
+		wp_enqueue_script( "comment-reply" );
+	}
 	wp_enqueue_script( "main-js", get_theme_file_uri( "/assets/js/main.js" ), array( "jquery" ), 1.0, true );
 }
 
@@ -60,7 +65,7 @@ function philosophy_pagination() {
 	$links = str_replace( "<ul class='pgn__num'>", "<ul>", $links );
 	$links = str_replace( "prev pgn__num", "pgn__prev", $links );
 	$links = str_replace( "next pgn__num", "pgn__next", $links );
-	echo $links;
+	echo wp_kses_post($links);
 }
 
 function philosophy_admin_asset( $hook ) {
