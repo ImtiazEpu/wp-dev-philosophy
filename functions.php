@@ -1,5 +1,6 @@
 <?php
 require_once( get_theme_file_path( "/inc/tgm.php" ) );
+require_once( get_theme_file_path( "/inc/acf-mb.php" ) );
 require_once( get_theme_file_path( "/widgets/social-icons-widget.php" ) );
 if ( class_exists( 'Attachments' ) ) {
 	require_once get_theme_file_path( "/inc/attachments.php" );
@@ -185,3 +186,4 @@ FORM;
 }
 
 add_filter( "get_search_form", "philosophy_search_form" );
+add_filter( 'acf/settings/show_admin', '__return_false' );
