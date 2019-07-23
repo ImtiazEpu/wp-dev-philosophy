@@ -60,7 +60,7 @@ function philosophy_pagination() {
 		'current'  => max( 1, get_query_var( 'paged' ) ),
 		'total'    => $wp_query->max_num_pages,
 		'type'     => 'list',
-		'mid_size' => 3
+		'mid_size' => apply_filters("philosophy_pagination_mid_size",3)
 	) );
 	$links = str_replace( "page-numbers", "pgn__num", $links );
 	$links = str_replace( "<ul class='pgn__num'>", "<ul>", $links );
@@ -184,6 +184,13 @@ FORM;
 	return $newform;
 
 }
-
 add_filter( "get_search_form", "philosophy_search_form" );
 add_filter( 'acf/settings/show_admin', '__return_false' );
+function philosophy_home_banner_class($class_name){
+	if (is_home()){
+		return $class_name;
+	}else{
+		return "";
+	}
+}
+add_filter("philosophy_home_banner_class", "philosophy_home_banner_class");
