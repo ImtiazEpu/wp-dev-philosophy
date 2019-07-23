@@ -18,9 +18,7 @@
             <div class="masonry">
 
                 <div class="grid-sizer"></div>
-				<?php if ( ! have_posts() ): ?>
-                    <h5 class="text-center"><?php _e( "There is no post in this category", "philosophy" ); ?></h5>
-				<?php endif; ?>
+
 
 				<?php
 				while ( have_posts() ) {
@@ -30,6 +28,11 @@
 				?>
 
             </div> <!-- end masonry -->
+	        <?php if ( ! have_posts() ): ?>
+                <div class="text-center alert-box alert-box--notice hideit">
+			          <?php _e( "There is no post in this category", "philosophy" ); ?>
+                </div>
+	        <?php endif; ?>
         </div> <!-- end masonry-wrap -->
 
         <div class="row">
