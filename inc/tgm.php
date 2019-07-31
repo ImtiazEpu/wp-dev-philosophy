@@ -87,23 +87,23 @@ function philosophy_register_required_plugins() {
 		array(
 			'name'     => 'Advanced Custom Fields',
 			'slug'     => 'advanced-custom-fields',
-			'required' => false,
+			'required' => true,
 		),
 		array(
 			'name'     => 'Attachments',
 			'slug'     => 'attachments',
-			'required' => false,
+			'required' => true,
 		),
 
 		array(
 			'name'     => 'Contact Form 7',
 			'slug'     => 'contact-form-7',
-			'required' => false,
+			'required' => true,
 		),
 		array(
 			'name'     => 'Shortcake (Shortcode UI)',
 			'slug'     => 'shortcode-ui',
-			'required' => false,
+			'required' => true,
 		),
 
 
