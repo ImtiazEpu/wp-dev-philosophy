@@ -20,15 +20,6 @@ get_header();
 
             </div> <!-- end s-content__header -->
 
-            <div class="s-content__media col-full">
-                <div id="map-wrap">
-					<?php
-					if ( is_active_sidebar( "contact-map" ) ) {
-						dynamic_sidebar( "contact-map" );
-					}
-					?>
-                </div>
-            </div> <!-- end s-content__map-->
 
             <div class="col-full s-content__main">
 				<?php the_content(); ?>
