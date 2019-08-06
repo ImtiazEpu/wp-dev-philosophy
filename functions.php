@@ -1,6 +1,7 @@
 <?php
 require_once( get_theme_file_path( "/inc/tgm.php" ) );
 require_once( get_theme_file_path( "/inc/acf-mb.php" ) );
+require_once( get_theme_file_path( "/lib/csf/cs-framework.php" ) );
 if ( class_exists( 'Attachments' ) ) {
 	require_once get_theme_file_path( "/inc/attachments.php" );
 }
